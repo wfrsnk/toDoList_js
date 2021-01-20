@@ -1,0 +1,37 @@
+ <!doctype html>
+ <html lang="en">
+
+ <head>
+ 	<meta charset="UTF-8">
+ 	<meta name="viewport"
+ 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 	<title>Document</title>
+ 	<link rel="stylesheet" href="./style.css">
+ </head>
+
+ <body>
+ 	<div class = "conteiner">
+		<div class = "todos">
+			<span>todos</span></div> 
+		 
+ 		<div class="select">
+
+ 			<div id="selectID" class="select__header">
+ 				<div id ="icon" class="select__icon" onclick="checkAll()"></div>
+ 				<input id="inputEdit" type="text" placeholder="What need to be done?" value=''
+ 					onkeypress="handleKeyPress(event)">
+ 			</div>
+
+
+ 			<div class="select__body">
+ 				<lu id="luID"></lu>
+ 				<div id ="footerID" class="wrap"></div>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<script src="./main.js"></script>
+
+ </body>
+
+ </html>
