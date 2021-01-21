@@ -24,16 +24,19 @@ function selectToggle() {
 };
 
 function checkAll() {
-    flagCheck = !flagCheck;
+    let flagCheck = true;
+    for (let i = li.length - 1; i >= 0; i--) {
+        if (li[i].firstElementChild.firstElementChild.checked != true) 
+            flagCheck = false;
+        }        
     if (flagCheck === true) {
 
-        for (let i = 0; i < li.length; i++) {
-
+        for (let i = li.length-1; i >= 0; i--) {
             li[i].firstElementChild.firstElementChild.checked = false;
             li[i].children[1].setAttribute('class', 'taskText');
         }
     } else {
-        for (let i = 0; i < li.length; i++) {
+        for (let i = li.length-1; i >= 0; i--) {
             li[i].firstElementChild.firstElementChild.checked = true;
             li[i].children[1].setAttribute('class', 'taskTextChoesed');
         }
@@ -44,7 +47,7 @@ function checkAll() {
 
 
 function showActive() {
-    for (let i = 0; i < li.length; i++) {
+    for (let i = li.length-1; i >= 0; i--) {
         let flag = li[i].firstElementChild.firstElementChild.checked
         if (flag === true)
             li[i].style.display = 'none';
@@ -57,7 +60,7 @@ function showActive() {
 };
 
 function showAll() {
-    for (let i = 0; i < li.length; i++) {
+    for (let i = li.length-1; i >= 0; i--) {
         li[i].style.display = 'flex';
     }
     document.getElementById('all').style.border = '1px solid #d19090';
@@ -66,7 +69,7 @@ function showAll() {
 };
 
 function showCompleted() {
-    for (let i = 0; i < li.length; i++) {
+    for (let i = li.length-1; i >= 0; i--) {
         let flag = li[i].firstElementChild.firstElementChild.checked
         if (flag === false)
             li[i].style.display = 'none';
@@ -90,7 +93,7 @@ function chooseCheckBox(id) {
         textElement.setAttribute('class', 'taskText');
     }
     let flagForClear = false;
-    for (let i = 0; i < li.length; i++)
+    for (let i = li.length-1; i >= 0; i--)
         if (li[i].firstElementChild.firstElementChild.checked === true)
             flagForClear = true;
     if (flagForClear === true)
@@ -104,13 +107,14 @@ function deleteStr(id) {
     console.log(id);
     console.log(luTag);
 
-    for (let i = 0; i < luTag[0].children.length; i++) {
+    for (let i = li.length-1; i >= 0; i--) {
         if (luTag[0].children[i].children[2].id === id)
             li[i].remove();
     }
     if (lu.innerHTML === '') {
         footer.innerHTML = '';
         iconId.innerHTML = '';
+        checkId = 0;
     }
 
     countList();
@@ -118,7 +122,7 @@ function deleteStr(id) {
 
 function countList() {
     let count = 0;
-    for (let i = 0; i < li.length; i++)
+    for (let i = li.length-1; i >= 0; i--)
         if (li[i].firstElementChild.firstElementChild.checked === false && li[i].style.display != 'none')
             count++;
 
@@ -134,16 +138,17 @@ function countList() {
 function delCompleted() {
 
     console.log('luTag[0]: ', luTag);
-    for (let i = 0; i < luTag[0].children.length; i++) {
+    for (let i = li.length-1; i >= 0; i--) {
         if (luTag[0].children[i].firstElementChild.firstElementChild.checked === true) {
             li[i].remove();
-            i--;
+        
         }
     }
     document.getElementById('clear').innerHTML = '';
     if (lu.innerHTML === '') {
         footer.innerHTML = '';
         iconId.innerHTML = '';
+        checkId = 0;
     }
 };
 
@@ -155,8 +160,9 @@ function handleKeyPress(e) {
     if (key === 13 && inputEdit.value != '') {
         let flagRepet = false;
         console.log('li: ', li);
-        for (let i = 0; i < li.length; i++) {
-            if (inputEdit.value === document.getElementById('text__checkbox' + i).innerHTML)
+        for (let i = li.length-1; i >= 0; i--) {
+            console.log('saf1111111111111111111111', li[i].children[1].innerHTML);
+            if (inputEdit.value === li[i].children[1].innerHTML)
                 flagRepet = true;
         }
         if (flagRepet === true)

@@ -1,6 +1,6 @@
 body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(240, 240, 240);
 }
 
 .contreiner {
@@ -103,12 +103,12 @@ body {
 }
 
 .taskTextChoesed {
-  overflow-wrap: break-word;
   text-decoration: line-through;
   color: #8a8a8a;
   padding-left: 20px;
   padding-top: 12px;
   width: 320px;
+  overflow-wrap: break-word;
 }
 
 
@@ -197,9 +197,11 @@ button:focus {
   padding-top:3px;
   cursor:pointer;
 }
+
 #clear {
   width: 150px;
 }
+
 #footerID {
   background-color: rgb(224, 224, 224);
 }
