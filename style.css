@@ -175,6 +175,7 @@ body {
   margin-right: 15px;
   margin-left:20px;
   width: 220px;
+  display: flex;
 }
 
 button{
